@@ -226,7 +226,7 @@ public class TaskServiceImpl implements TaskService {
     @Scheduled(cron = "0 */1 * * * ?")  //每分钟执行一次
     public void refresh() {
 
-        String token = cacheService.tryLock("FUTRUE_TASK_SYNC", 1000 * 30);
+        String token = cacheService.tryLock("FUTRUE_TASK_SYNC", 1000 * 30); //加锁（分布式锁）（30秒自动释放）
 
         if(StringUtils.isNotBlank(token)){
             log.info("未来数据定时刷新---定时任务");
@@ -248,7 +248,6 @@ public class TaskServiceImpl implements TaskService {
                 }
             }
         }
-
     }
 
     @Scheduled(cron = "0 */5 * * * ?")  //每五分钟执行一次

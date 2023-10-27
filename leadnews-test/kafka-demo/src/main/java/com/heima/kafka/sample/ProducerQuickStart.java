@@ -15,7 +15,8 @@ public class ProducerQuickStart {
         //1.kafka链接配置信息
         Properties prop = new Properties();
         //kafka链接地址
-        prop.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.200.130:9092");
+//        prop.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.200.130:9092");
+        prop.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.11.100:9092");
         //key和value的序列化
         prop.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer");
         prop.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,"org.apache.kafka.common.serialization.StringSerializer");
